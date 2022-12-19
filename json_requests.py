@@ -1,12 +1,28 @@
 from urllib import request
-import json
+from json import loads
 
 number_page = 1
 
 def get_json_data(url):
-    response = request.urlopen(url)
-    json_data = json.loads(response.read())
-    return json_data
+    try:
+        response = request.urlopen(url)
+    except:
+        raise SystemExit("Error while requesting JSON data.")
+    else:
+        print("Successfully received data from Flickr.")
+        json_data = loads(response.read())
+        check_json_stat(json_data)
+        return json_data
+
+def check_json_stat(json_data):
+    if json_data['stat'] == 'ok':
+        return
+    elif json_data['stat'] == 'fail':
+        raise SystemExit("Flickr returned 'fail'. " + \
+            "Check your config file and try again.\n" + \
+            "Error code: %s - %s" % (json_data['code'], json_data['message']))
+    else:
+        raise SystemExit("Error while reading JSON data.")
 
 def get_data_public_photos(api_key, user_id, number_photos):
     url = "https://www.flickr.com/services/rest/?method=flickr." + \

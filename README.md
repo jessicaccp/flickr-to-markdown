@@ -6,7 +6,15 @@
 ![](https://img.shields.io/github/license/jessicaccp/flickr-to-markdown?style=flat) 
 ![](https://img.shields.io/github/last-commit/jessicaccp/flickr-to-markdown/main?style=flat)
 
-Generates a Markdown page with Flickr photos using Python 3.
+Generates a Markdown file, Hugo based, with photos from Flickr using Python 3.
+
+## Table of Contents
+
+* [Installation](#installation)
+* [Configuration](#configuration)
+* [Options](#options)
+* [Running](#running)
+* [Output](#output)
 
 ## Installation
 
