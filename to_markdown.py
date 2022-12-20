@@ -1,8 +1,7 @@
 from datetime import datetime
 
-def get_markdown_photo(title, alt, src, flickr_url):
-    code = '[![' + str(alt) + \
-    '](' + str(src) + \
+def get_markdown_photo(title, src, flickr_url):
+    code = '[![](' + str(src) + \
     ' "' + str(title) + \
     '")](' + str(flickr_url) + ')\n\n'
     return code
